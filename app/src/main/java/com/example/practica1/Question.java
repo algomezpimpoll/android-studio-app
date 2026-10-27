@@ -1,46 +1,54 @@
 package com.example.practica1;
 
-public class Pregunta {
+public class Question {
 
-    private final String texto;
-    private final int imagen;
-    private final String[] opcionesTexto;
-    private final int[] opcionesImagen;
-    private final int correcta;
-
-    public Pregunta(String texto, int imagen, String[] opcionesTexto, int[] opcionesImagen, int correcta) {
-        this.texto = texto;
-        this.imagen = imagen;
-        this.opcionesTexto = opcionesTexto;
-        this.opcionesImagen = opcionesImagen;
-        this.correcta = correcta;
+    public enum ControlType {
+        RADIO_GROUP,
+        LIST_VIEW,
+        IMAGE_BUTTONS
     }
 
-    public String getTexto() {
-        return texto;
+    private final String text;
+    private final int image;
+    private final String[] textOptions;
+    private final int[] imageOptions;
+    private final int correctIndex;
+    private final ControlType controlType;
+
+    public Question(String text, int image, String[] textOptions, int[] imageOptions, int correctIndex, ControlType controlType) {
+        this.text = text;
+        this.image = image;
+        this.textOptions = textOptions;
+        this.imageOptions = imageOptions;
+        this.correctIndex = correctIndex;
+        this.controlType = controlType;
     }
 
-    public int getImagen() {
-        return imagen;
+    public String getText() {
+        return text;
     }
 
-    public String[] getOpcionesTexto() {
-        return opcionesTexto;
+    public int getImage() {
+        return image;
     }
 
-    public int[] getOpcionesImagen() {
-        return opcionesImagen;
+    public String[] getTextOptions() {
+        return textOptions;
     }
 
-    public int getCorrecta() {
-        return correcta;
+    public int[] getImageOptions() {
+        return imageOptions;
     }
 
-    public boolean tieneImagen() {
-        return imagen != 0;
+    public int getCorrectIndex() {
+        return correctIndex;
     }
 
-    public boolean opcionesSonImagenes() {
-        return opcionesImagen != null;
+    public ControlType getControlType() {
+        return controlType;
+    }
+
+    public boolean hasImage() {
+        return image != 0;
     }
 }
