@@ -2,6 +2,7 @@ package com.example.practica1;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -30,11 +31,11 @@ public class ResultActivity extends AppCompatActivity {
         int maxScore = getIntent().getIntExtra(EXTRA_MAX_SCORE, 0);
 
         TextView tvFinalScore = findViewById(R.id.tvFinalScore);
-        tvFinalScore.setText(getString(R.string.result_score, score, maxScore));
+        tvFinalScore.setText(getString(R.string.result_score) + ": " + score + "/" + maxScore);
+    }
 
-        findViewById(R.id.btnNewGame).setOnClickListener(v -> {
-            startActivity(new Intent(this, MainActivity.class));
-            finish();
-        });
+    public void onNewGameClicked(View view) {
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 }

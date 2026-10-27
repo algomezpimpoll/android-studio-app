@@ -5,9 +5,11 @@ public class Question {
     public enum ControlType {
         RADIO_GROUP,
         LIST_VIEW,
-        IMAGE_BUTTONS
+        IMAGE_BUTTONS,
+        SPINNER
     }
 
+    private final int layout;
     private final String text;
     private final int image;
     private final String[] textOptions;
@@ -15,13 +17,18 @@ public class Question {
     private final int correctIndex;
     private final ControlType controlType;
 
-    public Question(String text, int image, String[] textOptions, int[] imageOptions, int correctIndex, ControlType controlType) {
+    public Question(int layout, String text, int image, String[] textOptions, int[] imageOptions, int correctIndex, ControlType controlType) {
+        this.layout = layout;
         this.text = text;
         this.image = image;
         this.textOptions = textOptions;
         this.imageOptions = imageOptions;
         this.correctIndex = correctIndex;
         this.controlType = controlType;
+    }
+
+    public int getLayout() {
+        return layout;
     }
 
     public String getText() {

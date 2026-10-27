@@ -8,6 +8,7 @@ public class QuestionBank {
     public static List<Question> getQuestions() {
         List<Question> questions = new ArrayList<>();
         questions.add(new Question(
+                R.layout.activity_main,
                 "Pregunta 1: ¿Cuál es un pez?",
                 0,
                 new String[]{"Tiburón", "Cangrejo", "Ballena", "Rana"},
@@ -15,6 +16,7 @@ public class QuestionBank {
                 0,
                 Question.ControlType.RADIO_GROUP));
         questions.add(new Question(
+                R.layout.activity_main,
                 "Pregunta 2: ¿Cuál es más grande?",
                 0,
                 new String[]{"Puma", "León", "Tigre", "Leopardo"},
@@ -22,6 +24,7 @@ public class QuestionBank {
                 2,
                 Question.ControlType.RADIO_GROUP));
         questions.add(new Question(
+                R.layout.activity_main_image_list,
                 "Pregunta 3: ¿Cómo se llama este animal?",
                 R.drawable.garza,
                 new String[]{"Ganso", "Oca", "Cisne", "Garza"},
@@ -29,13 +32,15 @@ public class QuestionBank {
                 3,
                 Question.ControlType.LIST_VIEW));
         questions.add(new Question(
-                "Pregunta 4: (imagen con opciones de texto)",
-                R.drawable.placeholder,
-                new String[]{"Opción A", "Opción B", "Opción C", "Opción D"},
+                R.layout.activity_main_spinner,
+                "Pregunta 4: ¿Cuál es el animal más pequeño?",
+                0,
+                new String[]{"Gato", "Ratón", "Cerdo", "Lombriz"},
                 null,
                 3,
-                Question.ControlType.RADIO_GROUP));
+                Question.ControlType.SPINNER));
         questions.add(new Question(
+                R.layout.activity_main_text_images,
                 "Pregunta 5: ¿Cuál de estos NO es omnívoro?",
                 0,
                 null,

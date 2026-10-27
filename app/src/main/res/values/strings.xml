@@ -1,17 +1,15 @@
 <resources>
     <string name="app_name">Practica1</string>
-    <string name="progress">Pregunta %1$d de %2$d</string>
-    <string name="score">Puntos: %1$d</string>
-    <string name="check">Comprobar</string>
-    <string name="no_selection">Selecciona una respuesta</string>
+    <string name="progress">Pregunta</string>
+    <string name="score">Puntos</string>
     <string name="correct_answer">¡Acierto! +3 puntos</string>
-    <string name="wrong_title">Respuesta incorrecta</string>
     <string name="wrong_message">Has fallado: -2 puntos. ¿Quieres continuar o empezar de nuevo?</string>
     <string name="continue_game">Continuar</string>
+    <string name="select_option">Selecciona una opción</string>
     <string name="restart">Empezar de nuevo</string>
     <string name="question_image">Imagen de la pregunta</string>
     <string name="image_option">Opción con imagen</string>
     <string name="result_title">Juego terminado</string>
-    <string name="result_score">Puntuación: %1$d de %2$d</string>
+    <string name="result_score">Puntuación</string>
     <string name="new_game">Nueva partida</string>
 </resources>
