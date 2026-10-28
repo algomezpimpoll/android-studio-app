@@ -2,7 +2,7 @@
     <string name="app_name">Practica1</string>
     <string name="progress">Pregunta</string>
     <string name="score">Puntos</string>
-    <string name="correct_answer">¡Acierto! +3 puntos</string>
+    <string name="correct_answer">¡Correcto! +3 puntos</string>
     <string name="wrong_message">Has fallado: -2 puntos. ¿Quieres continuar o empezar de nuevo?</string>
     <string name="continue_game">Continuar</string>
     <string name="select_option">Selecciona una opción</string>
