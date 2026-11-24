@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Practica1</string>
+    <string name="app_name">AnimalQuiz</string>
     <string name="progress">Pregunta</string>
     <string name="score">Puntos</string>
     <string name="correct_answer">¡Correcto! +3 puntos</string>
@@ -7,9 +7,14 @@
     <string name="continue_game">Continuar</string>
     <string name="select_option">Selecciona una opción</string>
     <string name="restart">Empezar de nuevo</string>
+    <string name="back">Volver</string>
     <string name="question_image">Imagen de la pregunta</string>
     <string name="image_option">Opción con imagen</string>
     <string name="result_title">Juego terminado</string>
     <string name="result_score">Puntuación</string>
     <string name="new_game">Nueva partida</string>
+    <string name="app_logo">Logo de la aplicación</string>
+    <string name="help_button">Manual de usuario</string>
+    <string name="help_title">Manual de usuario</string>
+    <string name="help_text">Cómo jugar\n\n1. Responde a las 5 preguntas del juego.\n2. Cada pregunta tiene cuatro opciones y solo una es correcta.\n3. Acierto: suma 3 puntos y suena un sonido de confirmación.\n4. Fallo: resta 2 puntos y suena un sonido de error. Puedes continuar o empezar de nuevo.\n5. Al terminar se muestra tu puntuación y puedes iniciar una nueva partida.\n\nTipos de pregunta: botones de opción, lista, desplegable e imágenes.\n\nEl botón Empezar de nuevo reinicia la partida en cualquier momento.</string>
 </resources>

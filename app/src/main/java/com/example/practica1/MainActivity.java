@@ -182,6 +182,10 @@ public class MainActivity extends AppCompatActivity {
         showQuestion();
     }
 
+    public void onHelpClicked(View view) {
+        startActivity(new Intent(this, HelpActivity.class));
+    }
+
     private void checkAnswer(int selection) {
         if (selection == questions.get(currentIndex).getCorrectIndex()) {
             score += CORRECT_POINTS;
