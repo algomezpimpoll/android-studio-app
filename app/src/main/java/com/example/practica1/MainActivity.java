@@ -1,6 +1,7 @@
 package com.example.practica1;
 
 import android.content.Intent;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -35,13 +36,14 @@ public class MainActivity extends AppCompatActivity {
     private int currentIndex;
     private int score;
     private boolean wrongScreenShowing;
+    private SoundPool soundPool;
+    private int correctSound;
+    private int wrongSound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-
-        questions = QuestionBank.getQuestions();
 
         if (savedInstanceState != null) {
             currentIndex = savedInstanceState.getInt(STATE_INDEX);
@@ -49,11 +51,21 @@ public class MainActivity extends AppCompatActivity {
             wrongScreenShowing = savedInstanceState.getBoolean(STATE_WRONG);
         }
 
-        if (wrongScreenShowing) {
-            showWrongScreen();
-        } else {
-            showQuestion();
-        }
+        soundPool = new SoundPool.Builder().setMaxStreams(1).build();
+        correctSound = soundPool.load(this, R.raw.correct, 1);
+        wrongSound = soundPool.load(this, R.raw.wrong, 1);
+
+        QuestionBank.load(this, loadedQuestions -> {
+            if (isFinishing() || isDestroyed()) {
+                return;
+            }
+            questions = loadedQuestions;
+            if (wrongScreenShowing) {
+                showWrongScreen();
+            } else {
+                showQuestion();
+            }
+        });
     }
 
     @Override
@@ -62,6 +74,13 @@ public class MainActivity extends AppCompatActivity {
         outState.putInt(STATE_INDEX, currentIndex);
         outState.putInt(STATE_SCORE, score);
         outState.putBoolean(STATE_WRONG, wrongScreenShowing);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        soundPool.release();
+        soundPool = null;
     }
 
     private void setLayout(int layout) {
@@ -166,10 +185,12 @@ public class MainActivity extends AppCompatActivity {
     private void checkAnswer(int selection) {
         if (selection == questions.get(currentIndex).getCorrectIndex()) {
             score += CORRECT_POINTS;
+            soundPool.play(correctSound, 1.0f, 1.0f, 1, 0, 1.0f);
             Toast.makeText(this, R.string.correct_answer, Toast.LENGTH_SHORT).show();
             nextQuestion();
         } else {
             score -= WRONG_POINTS;
+            soundPool.play(wrongSound, 1.0f, 1.0f, 1, 0, 1.0f);
             showWrongScreen();
         }
     }
